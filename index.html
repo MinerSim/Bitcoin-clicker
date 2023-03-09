@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bitcoin Clicker Game</title>
+<style>
+    body {
+        background-color: #F0F8FF;
+        font-family: arial;
+        font-size: large;
+    }
+    #clicker {
+        display: block;
+        position: relative;
+        width: 500px;
+        height: 200px;
+        border: 5px solid #000000;
+        margin: auto;
+background-image: url("https://static.vecteezy.com/system/resources/previews/001/987/660/original/abstract-diagonal-vibrant-yellow-background-technology-concept-free-vector.jpg");
+    }
+    #bitcoin {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 100px;
+    }
+    #upgrade_menu {
+        display: none;
+        position: relative;
+        width: 300px;
+        height: 225px;
+        border: 4px solid #FFA500;
+        margin: auto;
+background-image: url("https://img.freepik.com/free-vector/yellow-background-with-halftone-lines-design_1017-30148.jpg");
+    }
+</style>
+</head>
+<body>
+<div style="background-image: url('https://media.istockphoto.com/id/1346945822/photo/painted-bricks-design-yellow-color-wall-background-blocks-natural-design-texture-background.jpg?b=1&s=170667a&w=0&k=20&c=Sv_g46MwaP9amwfQTe4YyX_GBpfUjdU9wFFHVsd0aYA=');"> 
+<center><h1>Bitcoin Clicker</h1>
+
+<div id="clicker">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png" id="bitcoin" onclick="addScore()">
+    <p>Score: <span id="score">0</span></p>
+    <button id="upgrade_btn" onclick="showUpgradeMenu()">Show Upgrades</button>
+</div>
+
+<div id="upgrade_menu">
+    <p>Choose an upgrade:</p>
+    <ul>
+        <li><button onclick="upgradeMultiplier()">Multiplier x2</button> (cost: 1000)</li>
+        <li><button onclick="upgradeChance()">Chance x2</button> (cost: 1000)</li>
+        <li><button onclick="upgradeChance2()">Chance x5</button> (cost: 2500)</li>
+        <li><button onclick="upgradeMultiplier2()">Multiplier x10</button> (cost: 5000)</li>
+        <li><button onclick="uupgradeMultiplier3()">Multiplier x15</button> (cost: 15000)</li>
+
+    </ul>
+    <button onclick="hideUpgradeMenu()">Hide</button>
+</div>
+</center>
+<script>
+    let score = 0;
+    let multiplier = 1;
+    let chance = 0.5;
+    
+    //show upgrade menu
+    function showUpgradeMenu() {
+        document.getElementById("upgrade_menu").style.display = "block";
+    }
+    
+    //hide upgrade menu
+    function hideUpgradeMenu() {
+        document.getElementById("upgrade_menu").style.display = "none";
+    }
+    
+    //add score
+    function addScore() {
+        if (Math.random() < chance) {
+            score += multiplier;
+            document.getElementById("score").innerHTML = score;
+        }
+    }
+    
+    //upgrade multiplier
+    function upgradeMultiplier() {
+        if (score >= 1000) {
+            score -= 1000;
+            document.getElementById("score").innerHTML = score;
+            multiplier *= 2;
+        }
+    }
+    
+    //upgrade chance
+    function upgradeChance() {
+        if (score >= 500) {
+            score -= 500;
+            document.getElementById("score").innerHTML = score;
+            chance *= 2;
+        }
+    }
+    //upgrade chance 2
+    function upgradeChance2() {
+        if (score >= 2500) {
+            score -= 2500;
+            document.getElementById("score").innerHTML = score;
+            chance *= 5;
+        }
+    }
+
+    //upgrade multiplier 2
+    function upgradeMultiplier2() {
+        if (score >= 5000) {
+            score -= 5000;
+            document.getElementById("score").innerHTML = score;
+            multiplier *= 10;
+        }
+    }
+      //upgrade multiplier 3
+      function upgradeMultiplier3() {
+        if (score >= 15000) {
+            score -= 15000;
+            document.getElementById("score").innerHTML = score;
+            multiplier *= 15;
+        }
+    }
+  
+  
+  
+</script>
+<br>
+<br>
+<br>
+<br>
+  <center><p>This game has been made during a 1-hour challange with my friend.</center>
+<br>
+  <br>
+</body>
+</html>
